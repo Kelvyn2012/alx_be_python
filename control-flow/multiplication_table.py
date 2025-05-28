@@ -1,15 +1,18 @@
 # multiplication_table.py
 
 # Prompt the user for a number
-number = int(input("Enter a number to generate its multiplication table: "))
+number_input = input("Enter a number to see its multiplication table: ")
 
-# Use a for loop to print the multiplication table from 1 to 10
-
-for i in range(1, 11):
-    result = number * i
-    print(f"{number} * {i} = {result}")
+# Check if the input is a valid number
+if number_input.replace('.', '', 1).isdigit():
+    number = float(number_input)
     
-# multiplication_table success message
-print("Multiplication table generated successfully.")
+    # Use a for loop to print the multiplication table from 1 to 10
+    for i in range(1, 11):
+        result = number * i
+        print(f"{number} * {i} = {result}")
+else:
+    print("Please enter a valid number.")
+
 
 
