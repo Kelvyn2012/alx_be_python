@@ -1,11 +1,11 @@
 # pattern_drawing.py
 
 # Prompt the user for the pattern size
-size_input = input("Enter the size of the pattern: ")
+user_input = input("Enter the size of the pattern: ")
 
 # Check if the input is a valid positive integer
-if size_input.isdigit() and int(size_input) > 0:
-    size = int(size_input)
+if user_input.isdigit() and int(user_input) > 0:
+    size = int(user_input)
     
     row = 0
     while row < size:
