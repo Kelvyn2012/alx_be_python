@@ -1,17 +1,10 @@
-# pattern_drawing.py
+# Ask the user for the size of the pattern
+size = int(input("Enter the size of the pattern: "))
 
-# Prompt the user for the pattern size
-user_input = input("Enter the size of the pattern: ")
 
-# Check if the input is a valid positive integer
-if user_input.isdigit() and int(user_input) > 0:
-    size = int(user_input)
-    
-    row = 0
-    while row < size:
-        for col in range(size):
-            print("*", end="")
-        print()  # Move to the next line after each row
-        row += 1
+# Print a square pattern of asterisks
+for row in range(size):
+    print("*" * size)
 else:
-    print("Please enter a valid positive integer.")
+    print("Please enter a valid positive number.")
+
