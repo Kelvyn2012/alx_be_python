@@ -1,18 +1,30 @@
-# Ask the user to enter the task, convert it to lowercase, and remove extra spaces
-task = input("Enter your task: ").lower().strip()
+# daily_reminder.py
 
-# Ask for the priority level, clean it for consistency
-priority_level = input("Priority (high/medium/low): ").lower().strip()
+# Ask the user for a task
+task = input("Enter your task: ")
 
-# Ask if the task is time-sensitive, clean input
-time_bound = input("Is this task time-bound? (yes/no): ").strip().lower()
+# Ask for the priority level
+priority = input("Priority (high/medium/low): ").lower()
 
-# Use a match-case block to decide the response based on time sensitivity
-match time_bound:
-    # If the task is time-bound (i.e., urgent)
-    case _ if time_bound == "yes":
-        print(f"Reminder: {task} is a {priority_level} priority task that requires immediate attention today!")
+# Ask if the task is time-bound
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-    # If the task is not time-bound
+# Use match-case to handle different priority levels
+match priority:
+    case "high":
+        message = f"Reminder: '{task}' is a high priority task"
+    case "medium":
+        message = f"Reminder: '{task}' is a medium priority task"
+    case "low":
+        message = f"Note: '{task}' is a low priority task"
     case _:
-        print(f"{task} is a {priority_level} priority task. Consider completing it when you have free time.")
+        message = f"'{task}' has an unknown priority level. Please review it."
+
+# Use if to check time sensitivity and adjust the message
+if time_bound == "yes" and priority in ("high", "medium", "low"):
+    message += " that requires immediate attention today!"
+elif priority in ("high", "medium", "low"):
+    message += ". Consider completing it soon."
+
+# Print the final reminder
+print(message)
