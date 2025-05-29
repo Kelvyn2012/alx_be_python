@@ -1,30 +1,33 @@
-# daily_reminder.py
+# Ask the user for a task and clean the input
+task = input("Enter your task: ").strip().lower()
 
-# Ask the user for a task
-task = input("Enter your task: ")
+# Ask for the task's priority level and clean the input
+priority_level = input("Priority (high/medium/low): ").strip().lower()
 
-# Ask for the priority level
-priority = input("Priority (high/medium/low): ").lower()
+# Ask if the task is time-bound and clean the input
+time_bound = input("Is this task time-bound? (yes/no): ").strip().lower()
 
-# Ask if the task is time-bound
-time_bound = input("Is it time-bound? (yes/no): ").lower()
-
-# Use match-case to handle different priority levels
-match priority:
+# Match based on the priority level
+match priority_level:
     case "high":
-        message = f"Reminder: '{task}' is a high priority task"
+        # If task is time-sensitive
+        if time_bound == "yes":
+            print(f"🚨 Reminder: '{task}' is a HIGH priority task that requires immediate attention today!")
+        else:
+            print(f"📌 Reminder: '{task}' is a HIGH priority task. Try to complete it as soon as possible.")
+
     case "medium":
-        message = f"Reminder: '{task}' is a medium priority task"
+        if time_bound == "yes":
+            print(f"⏳ Reminder: '{task}' is a MEDIUM priority task that needs attention today.")
+        else:
+            print(f"📝 Reminder: '{task}' is a MEDIUM priority task. Plan to complete it soon.")
+
     case "low":
-        message = f"Note: '{task}' is a low priority task"
+        if time_bound == "yes":
+            print(f"📅 Reminder: '{task}' is a LOW priority task, but it’s time-sensitive. Don’t forget it today!")
+        else:
+            print(f"📖 Note: '{task}' is a LOW priority task. Consider doing it when you have extra time.")
+
     case _:
-        message = f"'{task}' has an unknown priority level. Please review it."
-
-# Use if to check time sensitivity and adjust the message
-if time_bound == "yes" and priority in ("high", "medium", "low"):
-    message += " that requires immediate attention today!"
-elif priority in ("high", "medium", "low"):
-    message += ". Consider completing it soon."
-
-# Print the final reminder
-print(message)
+        # Handles anything that’s not high/medium/low
+        print(f"⚠️ '{task}' has an unknown priority level. Please check your input.")
