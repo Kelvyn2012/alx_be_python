@@ -11,8 +11,9 @@ class BankAccount:
             return False
         if amount > self.initial_balance:
             return False
-        self.initial_balance -= amount
-        return True
+        else:
+            self.initial_balance -= amount
+            return True
         
     def display_balance(self):
         print(f"Current Balance: ${self.initial_balance:.2f}")
