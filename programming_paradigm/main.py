@@ -10,7 +10,9 @@ def main():
     denominator = sys.argv[2]
 
     result = safe_divide(numerator, denominator)
-    print(result)
+    print(f"The result of the division is {result}")
+# This prints: The result of the division is 6.0
+
 
 if __name__ == "__main__":
     main()
