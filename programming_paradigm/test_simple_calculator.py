@@ -18,13 +18,11 @@ class TestSimple_calculator(unittest.TestCase):
         
   
     def test_division_by_zero(self):
-        result = self.calc.divide(4,0)
-        self.assertIsNone(result,)    
+        self.assertIsNone(self.calc.divide(5,0),)    
     
         
     def test_division(self):
-        result = self.calc.divide(4,2)
-        self.assertEqual(result,2)
+        self.assertEqual(self.calc.divide(4,2),2)
     
     
     
