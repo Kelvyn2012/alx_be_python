@@ -9,21 +9,21 @@ class TestSimple_calculator(unittest.TestCase):
     def test_addition(self):
         self.assertEqual(self.calc.add(4,2),6)
         
-    def test_subtract(self):
+    def test_subtraction(self):
         result = self.calc.subtract(5,3)
         self.assertEqual(result,2)
 
-    def test_multiply(self):
+    def test_multiplication(self):
         result = self.calc.multiply(2,4)
         self.assertEqual(result,8)
         
   
-    def test_divide_by_zero(self):
+    def test_division_by_zero(self):
         result = self.calc.divide(4,0)
         self.assertIsNone(result,)    
     
         
-    def test_divide(self):
+    def test_division(self):
         result = self.calc.divide(4,2)
         self.assertEqual(result,2)
     
