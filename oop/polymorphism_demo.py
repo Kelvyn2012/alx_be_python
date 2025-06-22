@@ -1,5 +1,3 @@
-# polymorphism_demo.py
-
 import math
 
 class Shape:
